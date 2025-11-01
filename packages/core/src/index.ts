@@ -89,7 +89,7 @@ export class Synoptic {
      * @param params - User-provided parameters
      * @returns Combined parameters with token
      */
-    private buildSearchParams(params: Record<string, any>): Record<string, string> {
+    private buildSearchParams(params: Record<string, string | number>): Record<string, string> {
         const searchParams: Record<string, string> = {};
 
         // Convert all parameters to strings and filter out undefined values

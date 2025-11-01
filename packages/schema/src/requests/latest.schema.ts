@@ -1,4 +1,4 @@
-import { BooleanStringType, CheckDataType, OutputFormatType, StatusType, SwitchType, TimeZoneType, unitsType } from "./common.schema";
+import type { BooleanStringType, CheckDataType, OutputFormatType, StatusType, SwitchType, TimeZoneType, unitsType } from "./common.schema";
 
 /**
  * Represents the complete set of parameters accepted by the "Latest" endpoint.

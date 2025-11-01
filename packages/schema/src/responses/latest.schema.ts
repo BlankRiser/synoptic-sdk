@@ -1,4 +1,4 @@
-import { QcSummary, Station, Summary, VariableUnits } from "./common.schema"
+import type { QcSummary, Station, Summary, VariableUnits } from "./common.schema"
 
 export type LatestResponse = {
     STATION: Partial<Station>[]

@@ -1,6 +1,6 @@
 
-import { Synoptic } from '@/index';
 import { describe, expect, test } from 'bun:test';
+import { Synoptic } from '@/index';
 
 declare module "bun" {
     interface Env {
@@ -11,19 +11,30 @@ declare module "bun" {
 describe('Test synoptic sdk class', () => {
     test('should have core tests', async () => {
         const synoptic = new Synoptic({
-            token: process.env.SYNOPTIC_TOKEN!,
+            token: process.env.SYNOPTIC_TOKEN,
+            options: {
+                hooks: {
+                    beforeRequest: [
+                        (request) => {
+                            console.log(request)
+                        }
+                    ]
+                }
+            }
         })
 
         expect(synoptic).toBeInstanceOf(Synoptic);
 
-        await synoptic.latest({
-            status: 'active',
+        const res = await synoptic.latest({
+            stid: 'uatkf',
+            // status: 'active',
+            // nwszone: "VA525",
             height: 1028,
             width: 907,
-            bbox: "72.49485490237524,22.86460197396525,72.74594506082215,23.12667118961737",
-            networkimportance: "1,2,28,153,185,206,210,239,240",
-            obtimezone: "UTC",
-            units: "temp|F,speed|mph,pres|mb,height|ft,precip|in,alti|inhg,fuel_moisture|%",
+            // bbox: "72.49485490237524,22.86460197396525,72.74594506082215,23.12667118961737",
+            // networkimportance: "1,2,28,153,185,206,210,239,240",
+            // obtimezone: "UTC",
+            // units: "temp|F,speed|mph,pres|mb,height|ft,precip|in,alti|inhg,fuel_moisture|%",
             qc: "on",
             qc_flags: "on",
             qc_remove_data: "off",
@@ -36,5 +47,6 @@ describe('Test synoptic sdk class', () => {
             minmax: "1",
             minmaxtype: "local",
         })
+        console.log(res)
     });
 });

@@ -1,7 +1,5 @@
-# Synoptic API SDK
-
 <p align="center">
-  <h1 align="center">synoptic-sdk</h1>
+  <h1 align="center">Synoptic API SDK</h1>
   <p align="center">
    A fully type-safe TypeScript SDK for integrating and consuming Synoptic Data Services API in modern JavaScript and TypeScript projects.
     <br/>
