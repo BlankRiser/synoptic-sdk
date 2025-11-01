@@ -1,0 +1,31 @@
+{
+  "name": "@devhaven/schema",
+  "license": "MIT",
+  "version": "0.1.0",
+  "module": "index.ts",
+  "type": "module",
+  "exports": {
+    "./requests": "./src/requests/*.ts",
+    "./responses": "./src/responses/*.ts"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "synoptic",
+    "weather",
+    "api",
+    "sdk",
+    "typescript"
+  ],
+  "scripts": {
+    "dev": "bun run ./src/index.ts",
+    "build": "bun run ./scripts/build.ts"
+  },
+  "peerDependencies": {
+    "typescript": "5.9.3"
+  },
+  "dependencies": {
+    "zod": "4.1.12"
+  }
+}
