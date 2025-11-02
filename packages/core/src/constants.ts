@@ -1,1 +1,1 @@
-export const DEFAULT_CONFIG = { "baseUrl": "https://api.synopticdata.com/v2" };
+export const DEFAULT_CONFIG = { baseUrl: "https://api.synopticdata.com/v2" };
