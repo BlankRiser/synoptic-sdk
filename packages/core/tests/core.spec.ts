@@ -26,20 +26,105 @@ describe("Test synoptic sdk class", () => {
 	});
 });
 
-describe("Test latest endpoint", () => {
+describe("Test /variables endpoints", () => {
+	test("should have all variables fields", async () => {
+		const synoptic = new Synoptic({
+			token: process.env.SYNOPTIC_TOKEN,
+			options: {
+				hooks: {
+					beforeRequest: [
+						(request) => {
+							console.log(request);
+						},
+					],
+				},
+			},
+		});
+
+		await synoptic.variables({
+			output: "json",
+		});
+	});
+});
+
+describe("Test /networks endpoints", () => {
+	test("should have all networks fields", async () => {
+		const synoptic = new Synoptic({
+			token: process.env.SYNOPTIC_TOKEN,
+			options: {
+				hooks: {
+					beforeRequest: [
+						(request) => {
+							console.log(request);
+						},
+					],
+				},
+			},
+		});
+
+		await synoptic.networks({
+			output: "json",
+		});
+	});
+});
+
+describe("Test /networktypes endpoints", () => {
+	test("should have all network types fields", async () => {
+		const synoptic = new Synoptic({
+			token: process.env.SYNOPTIC_TOKEN,
+			options: {
+				hooks: {
+					beforeRequest: [
+						(request) => {
+							console.log(request);
+						},
+					],
+				},
+			},
+		});
+
+		await synoptic.networkTypes();
+	});
+});
+
+describe("Test /qctypes endpoints", () => {
+	test("should have all qc types fields", async () => {
+		const synoptic = new Synoptic({
+			token: process.env.SYNOPTIC_TOKEN,
+			options: {
+				hooks: {
+					beforeRequest: [
+						(request) => {
+							console.log(request);
+						},
+					],
+				},
+			},
+		});
+
+		const res = await synoptic.qcTypes();
+
+		await Bun.write("./qc_types.json", JSON.stringify(res, null, 2));
+	});
+});
+
+describe("Test /latest endpoint", () => {
 	test("should have all latest fields", async () => {
 		const synoptic = new Synoptic({
 			token: process.env.SYNOPTIC_TOKEN,
 		});
 
 		await synoptic.latest({
-			width: "233",
-			timeformat: "d",
+			stid: "kslc",
+			vars: "air_temp,wind_speed",
+			within: "60",
+			complete: "1",
+			fields: "stid,name",
 		});
 	});
 });
 
-describe("Test timeseries endpoints", () => {
+describe("Test /timeseries endpoints", () => {
 	test("should have all timeseries fields", async () => {
 		const synoptic = new Synoptic({
 			token: process.env.SYNOPTIC_TOKEN,
@@ -54,12 +139,10 @@ describe("Test timeseries endpoints", () => {
 			},
 		});
 
-		const res = await synoptic.timeseries({
+		await synoptic.timeseries({
 			stid: "kslc",
 			vars: "air_temp,wind_speed",
 			recent: "30",
 		});
-
-		console.log(res);
 	});
 });

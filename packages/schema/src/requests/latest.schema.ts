@@ -1,6 +1,5 @@
 import type {
 	BooleanStringType,
-	OutputFormatType,
 	QualityControlParams,
 	ResponseFormatParams,
 	StationSelectionsParams,
