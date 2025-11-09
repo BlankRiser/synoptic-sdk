@@ -28,7 +28,7 @@ export type Station = {
 	SITING: Siting[];
 	SENSOR_VARIABLES: SensorVariables;
 	UNITS: Units;
-	OBSERVATIONS: Observations;
+	OBSERVATIONS: LatestObservations;
 	QC_FLAGGED: boolean;
 	MINMAX: Minmax;
 	RESTRICTED: boolean;
@@ -81,8 +81,8 @@ export type SensorVariables = {
 	[V in WeatherVariable]: WeatherVariableData<V>;
 };
 
-export type Observations = {
-	string: {
+export type LatestObservations = {
+	[key: string]: {
 		value: number;
 		date_time: string;
 		qc: Qc;

@@ -1,0 +1,512 @@
+{
+  "QCTYPES": [
+    {
+      "ID": "1",
+      "NAME": "SynopticLabs Range Check",
+      "SHORTNAME": "sl_range_check",
+      "SOURCE_ID": "1"
+    },
+    {
+      "ID": "3",
+      "NAME": "SynopticLabs Temporal Persistence Check",
+      "SHORTNAME": "sl_pers_check",
+      "SOURCE_ID": "1"
+    },
+    {
+      "ID": "10",
+      "NAME": "SynopticLabs Wind Speed vs. Maximum Gusts",
+      "SHORTNAME": "sl_windspd_maxgust_check",
+      "SOURCE_ID": "1"
+    },
+    {
+      "ID": "81",
+      "NAME": "SynopticLabs Rate Change Check",
+      "SHORTNAME": "sl_rate_check",
+      "SOURCE_ID": "1"
+    },
+    {
+      "ID": "86",
+      "NAME": "SynopticLabs Wind Gust Factor Check",
+      "SHORTNAME": "sl_wind_gust_factor_check",
+      "SOURCE_ID": "1"
+    },
+    {
+      "ID": "87",
+      "NAME": "SynopticLabs Secondary Range Check",
+      "SHORTNAME": "sl_secondary_range_check",
+      "SOURCE_ID": "1"
+    },
+    {
+      "ID": "88",
+      "NAME": "SynopticLabs Secondary Persistence Check",
+      "SHORTNAME": "sl_secondary_pers_check",
+      "SOURCE_ID": "1"
+    },
+    {
+      "ID": "89",
+      "NAME": "SynopticLabs Soil Moisture Freezing Check",
+      "SHORTNAME": "sl_soil_moisture_freeze_check",
+      "SOURCE_ID": "1"
+    },
+    {
+      "ID": "90",
+      "NAME": "SynopticLabs Sensor Status Signal",
+      "SHORTNAME": "sl_sensor_status_signal_check",
+      "SOURCE_ID": "1"
+    },
+    {
+      "ID": "100",
+      "NAME": "SynopticLabs Percentile High Flag Check",
+      "SHORTNAME": "sl_percentile_hiflag_check",
+      "SOURCE_ID": "1"
+    },
+    {
+      "ID": "101",
+      "NAME": "SynopticLabs Percentile High Outlier Check",
+      "SHORTNAME": "sl_percentile_hioutlier_check",
+      "SOURCE_ID": "1"
+    },
+    {
+      "ID": "102",
+      "NAME": "SynopticLabs Percentile Low Flag Check",
+      "SHORTNAME": "sl_percentile_loflag_check",
+      "SOURCE_ID": "1"
+    },
+    {
+      "ID": "103",
+      "NAME": "SynopticLabs Percentile Low Outlier Check",
+      "SHORTNAME": "sl_percentile_looutlier_check",
+      "SOURCE_ID": "1"
+    },
+    {
+      "ID": "104",
+      "NAME": "SynopticLabs Spatial Percentile Check",
+      "SHORTNAME": "sl_spatial_percentile_check",
+      "SOURCE_ID": "1"
+    },
+    {
+      "ID": "105",
+      "NAME": "SynopticLabs Spatial Value Check",
+      "SHORTNAME": "sl_spatial_value_check",
+      "SOURCE_ID": "1"
+    },
+    {
+      "ID": "13",
+      "NAME": "MADIS Range Check",
+      "SHORTNAME": "ma_range_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "14",
+      "NAME": "MADIS Position Consistency Check",
+      "SHORTNAME": "ma_position_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "15",
+      "NAME": "MADIS Internal Consistency Check",
+      "SHORTNAME": "ma_int_cons_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "16",
+      "NAME": "MADIS Temporal Consistency Check",
+      "SHORTNAME": "ma_temp_cons_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "17",
+      "NAME": "MADIS Statistical Spatial Consistency Check",
+      "SHORTNAME": "ma_stat_spatial_cons_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "18",
+      "NAME": "MADIS Spatial Consistency Check",
+      "SHORTNAME": "ma_stat_cons_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "19",
+      "NAME": "MADIS Forecast Model Consistency Check",
+      "SHORTNAME": "ma_fcst_cons_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "20",
+      "NAME": "MADIS Statistical Model Consistency Check",
+      "SHORTNAME": "ma_stat_model_cons_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "21",
+      "NAME": "MADIS Kalman Filter Check",
+      "SHORTNAME": "ma_kal_filter_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "22",
+      "NAME": "MADIS SLP vs. Station Pressure",
+      "SHORTNAME": "ma_slp_stnpres_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "23",
+      "NAME": "MADIS Pressure Change vs. Station Pressure",
+      "SHORTNAME": "ma_pres_chng_stn_pres_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "24",
+      "NAME": "MADIS Air Temperature vs. Dewpoint Temperature",
+      "SHORTNAME": "ma_airtemp_dwpt_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "25",
+      "NAME": "MADIS Air Temperature vs. Max/Min Temperature",
+      "SHORTNAME": "ma_airtemp_mmtemp_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "26",
+      "NAME": "MADIS Air Temperature vs. SST",
+      "SHORTNAME": "ma_airtemp_SST_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "27",
+      "NAME": "MADIS Wind Direction vs. Wind Speed",
+      "SHORTNAME": "ma_winddir_windspd_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "28",
+      "NAME": "MADIS Wind Speed vs. Maximum Gusts",
+      "SHORTNAME": "ma_windspd_maxgust_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "29",
+      "NAME": "MADIS Wind Speed vs. Present Weather",
+      "SHORTNAME": "ma_windspd_preswx_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "30",
+      "NAME": "MADIS Wind Speed vs. Peak Wind Speed",
+      "SHORTNAME": "ma_windspd_peak_windspd_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "31",
+      "NAME": "MADIS Wind Speed vs. Maximum Wind Speed",
+      "SHORTNAME": "ma_windspd_max_windspd_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "32",
+      "NAME": "MADIS Wind Direction at 10m vs. Wind Speed at 10m",
+      "SHORTNAME": "ma_winddir10m_windspd10m_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "33",
+      "NAME": "MADIS Wind Direction at 20m vs. Wind Speed at 20m",
+      "SHORTNAME": "ma_winddir20m_windspd20m_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "34",
+      "NAME": "MADIS Maximum Gusts vs. Peak Wind Speed",
+      "SHORTNAME": "ma_maxgust_peak_windspd_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "35",
+      "NAME": "MADIS Maximum Gusts vs. Maximum Wind Speed",
+      "SHORTNAME": "ma_maxgust_max_windspd_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "36",
+      "NAME": "MADIS Peak Wind Speed vs. Present Weather",
+      "SHORTNAME": "ma_peak_windspd_preswx_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "37",
+      "NAME": "MADIS Horizontal Visibility (VV) vs. Present Weather (ww)",
+      "SHORTNAME": "ma_hvis_preswx_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "38",
+      "NAME": "MADIS Present Weather vs. Air temperature",
+      "SHORTNAME": "ma_preswx_airtemp_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "39",
+      "NAME": "MADIS Present Weather vs. Total Cloud Cover",
+      "SHORTNAME": "ma_preswx_totcldcov_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "40",
+      "NAME": "MADIS Present Weather vs. Low/Middle Cloud Cover",
+      "SHORTNAME": "ma_preswx_lmcldcov_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "41",
+      "NAME": "MADIS Present Weather vs. Accumulated Precipitation",
+      "SHORTNAME": "ma_preswx_accprecip_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "42",
+      "NAME": "MADIS Present Weather vs. Air temperature; Wind Speed; and Dewpoint",
+      "SHORTNAME": "ma_preswx_airtemp_windspd_dwpt_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "43",
+      "NAME": "MADIS Past Weather vs. Accumulated Precipitation",
+      "SHORTNAME": "ma_pastwx_accprecip_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "44",
+      "NAME": "MADIS Total Cloud Cover vs. Layer Cloud cover",
+      "SHORTNAME": "ma_totcldcov_layer_cldcov_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "45",
+      "NAME": "MADIS Total Cloud Cover vs. Low/Middle Cloud Cover",
+      "SHORTNAME": "ma_totcldcov_lmcldcov_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "46",
+      "NAME": "MADIS Total Cloud Cover vs. Low/Middle/High Cloud Type",
+      "SHORTNAME": "ma_totcldcov_lmhcldtype_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "47",
+      "NAME": "MADIS Total Cloud Cover vs. L/M Cloud Cover and Low/Middle/High Cloud Type",
+      "SHORTNAME": "ma_totcldcov_lmcldcov_lmhcldtype_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "48",
+      "NAME": "MADIS Total Cloud Cover vs. Visibility",
+      "SHORTNAME": "ma_totcldcov_vis_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "49",
+      "NAME": "MADIS Total Cloud Cover vs. Present Weather",
+      "SHORTNAME": "ma_tocldcov_preswx_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "50",
+      "NAME": "MADIS Low/Middle Cloud Cover vs. Low/Middle/High Cloud Types",
+      "SHORTNAME": "ma_lmcldcov_lmhcldtype_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "51",
+      "NAME": "MADIS Low/Middle Cloud Cover vs. Layer Cloud Type",
+      "SHORTNAME": "ma_lmcldcov_layercldtype_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "52",
+      "NAME": "MADIS Low Cloud Type vs. Layer Cloud Type",
+      "SHORTNAME": "ma_lcldtype_layercldtype_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "53",
+      "NAME": "MADIS Low Cloud Type vs. Low/Middle Cloud Cover",
+      "SHORTNAME": "ma_lcldtype_lmcldcov_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "54",
+      "NAME": "MADIS Low/Middle Cloud Type vs. Low/Middle Cloud Cover",
+      "SHORTNAME": "ma_lmcldtype_lmcldcov_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "55",
+      "NAME": "MADIS Low Cloud Type vs. Middle/High Cloud Type",
+      "SHORTNAME": "ma_lcldtype_mhcldtype_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "56",
+      "NAME": "MADIS Low Cloud Type vs. High Cloud Type and Total and L/M Cloud Cover",
+      "SHORTNAME": "ma_lcldtype_hcldtype_totcldcov_lmcldcov_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "57",
+      "NAME": "MADIS Middle Cloud Type vs. High Cloud Type",
+      "SHORTNAME": "ma_mcldtype_hcldtype_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "58",
+      "NAME": "MADIS Middle Cloud Type vs. High Cloud Type and Total and L/M Cloud Cover",
+      "SHORTNAME": "ma_mcldtype_hcldtype_totcldcov_lmcldcov_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "59",
+      "NAME": "MADIS Middle Cloud Type vs. Layer Cloud Type",
+      "SHORTNAME": "ma_mcldtype_layercldtype_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "60",
+      "NAME": "MADIS Middle Cloud Type vs. Low Cloud Type and Layer Cloud Type",
+      "SHORTNAME": "ma_mcldtype_lcldtype_layercldtype_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "61",
+      "NAME": "MADIS High Cloud Type vs. Layer Cloud Type",
+      "SHORTNAME": "ma_hcldtype_layercldtype_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "62",
+      "NAME": "MADIS High Cloud Type vs. L/M Cloud Type and Layer Cloud Type",
+      "SHORTNAME": "ma_hcldtype_lmcldtype_layercldtype",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "63",
+      "NAME": "MADIS High Cloud Type vs. Total Cloud Cover",
+      "SHORTNAME": "ma_hcldtype_totcldcov_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "64",
+      "NAME": "MADIS Layer Cloud Cover vs. Cloud Layer Reports",
+      "SHORTNAME": "ma_layercldcov_cldlayerreps_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "65",
+      "NAME": "MADIS Layer Cloud Cover vs. Low/Middle/High Cloud Type",
+      "SHORTNAME": "ma_layercldcov_lmhcldtype_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "66",
+      "NAME": "MADIS Layer Cloud Cover vs. Low/Middle/High Cloud Cover",
+      "SHORTNAME": "ma_layercldcov_lmhcldcov_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "67",
+      "NAME": "MADIS Layer Cloud Type vs. Low/Middle/High Cloud type",
+      "SHORTNAME": "ma_layercldtype_lmhcldtype_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "68",
+      "NAME": "MADIS Layer Cloud Type  vs. Low/Middle Cloud Cover and Layer Cloud Cover",
+      "SHORTNAME": "ma_layercldtype_lmhcldcov_layercldcov_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "69",
+      "NAME": "MADIS Layer Cloud Base vs. Low/Middle/High cloud type",
+      "SHORTNAME": "ma_layercldbase_lmhcldtype_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "70",
+      "NAME": "MADIS Layer Cloud Base vs. Layer Cloud Type",
+      "SHORTNAME": "ma_layercldbase_layercldtype_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "71",
+      "NAME": "MADIS Layer Cloud Base vs. Low/Middle Cloud Cover",
+      "SHORTNAME": "ma_layercldbase_lmhcldcov_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "72",
+      "NAME": "MADIS Layer Cloud Base vs. High Cloud Type and Layer Cloud Type",
+      "SHORTNAME": "ma_layercldbase_hcldtype_layercldtype_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "73",
+      "NAME": "MADIS Accumulated Precip (during period) vs. Snow Depth",
+      "SHORTNAME": "ma_accprecip_snowdepth_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "74",
+      "NAME": "MADIS Accumulated Precip (during period) vs. Snowfall",
+      "SHORTNAME": "ma_accprecip_snowfall_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "75",
+      "NAME": "MADIS Accumulated Precip (during period) vs. Accumulated Precip (24h)",
+      "SHORTNAME": "ma_accprecip_24hrprecip_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "76",
+      "NAME": "MADIS Snow Depth vs. Snow Water Equivalent",
+      "SHORTNAME": "ma_snowdepth_swe_check",
+      "SOURCE_ID": "2"
+    },
+    {
+      "ID": "77",
+      "NAME": "ARLFRD Manual Data Check",
+      "SHORTNAME": "arlfrd_manual_check",
+      "SOURCE_ID": "3"
+    },
+    {
+      "ID": "78",
+      "NAME": "MesoWest Multivariate Linear Regression Check",
+      "SHORTNAME": "mw_multvariate_lin_reg_check",
+      "SOURCE_ID": "5"
+    },
+    {
+      "ID": "79",
+      "NAME": "MesoWest 24 Hour Wind Persistence Check",
+      "SHORTNAME": "mw_24h_wind_persistence_check",
+      "SOURCE_ID": "5"
+    },
+    {
+      "ID": "80",
+      "NAME": "MesoWest UU2DVAR Rejection",
+      "SHORTNAME": "mw_uu2dvar_rejection",
+      "SOURCE_ID": "5"
+    }
+  ],
+  "SUMMARY": {
+    "NUMBER_OF_OBJECTS": 83,
+    "RESPONSE_CODE": 1,
+    "RESPONSE_MESSAGE": "OK",
+    "METADATA_QUERY_TIME": "5.3 ms",
+    "METADATA_PARSE_TIME": "0.1 ms",
+    "TOTAL_METADATA_TIME": "5.4 ms",
+    "TOTAL_TIME": "5.4 ms",
+    "VERSION": "v2.30.3"
+  }
+}

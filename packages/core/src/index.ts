@@ -1,14 +1,18 @@
 import type { LatestSearchParams } from "@devhaven/schema/requests/latest.schema";
 import type { MetadataParams } from "@devhaven/schema/requests/metadata.schema";
+import type { NearestSearchParams } from "@devhaven/schema/requests/nearest.schema";
 import type { NetworkTypesSearchParams } from "@devhaven/schema/requests/network-types.schema";
 import type { NetworksSearchParams } from "@devhaven/schema/requests/networks.schema";
 import type { QcTypesSearchParams } from "@devhaven/schema/requests/qc-types.schema";
 import type { TimeseriesParams } from "@devhaven/schema/requests/timeseries.schema";
 import type { VariablesSearchParams } from "@devhaven/schema/requests/variables.schema";
 import type { LatestResponse } from "@devhaven/schema/responses/latest.schema";
+import type { MetadataResponse } from "@devhaven/schema/responses/metadata.schema";
+import type { NearestResponse } from "@devhaven/schema/responses/nearest.schema";
 import type { NetworkTypesResponse } from "@devhaven/schema/responses/network-types.schema";
 import type { NetworkResponse } from "@devhaven/schema/responses/networks.schema";
 import type { QCTypesResponse } from "@devhaven/schema/responses/qc-types.schema";
+import type { TimeseriesResponse } from "@devhaven/schema/responses/timeseries.schema";
 import type { VariablesResponse } from "@devhaven/schema/responses/variables.schema";
 import ky, { type KyInstance, type Options } from "ky";
 import { DEFAULT_CONFIG, ENDPOINTS } from "./constants";
@@ -49,6 +53,21 @@ export class Synoptic {
 			},
 			...config.options,
 		});
+	}
+
+	/**
+	 * Get station metadata
+	 * @param params - Query parameters for the metadata endpoint
+	 * @returns Promise with the API response
+	 */
+	async metadata(params: MetadataParams): Promise<MetadataResponse> {
+		const searchParams = this.buildSearchParams(params);
+
+		return this.client
+			.get(ENDPOINTS.METADATA, {
+				searchParams,
+			})
+			.json<MetadataResponse>();
 	}
 
 	/**
@@ -108,6 +127,21 @@ export class Synoptic {
 	}
 
 	/**
+	 * Get time series data from stations
+	 * @param params - Query parameters for the timeseries endpoint
+	 * @returns Promise with the API response
+	 */
+	async timeseries(params: TimeseriesParams): Promise<TimeseriesResponse> {
+		const searchParams = this.buildSearchParams(params);
+
+		return this.client
+			.get(ENDPOINTS.TIMESERIES, {
+				searchParams,
+			})
+			.json<TimeseriesResponse>();
+	}
+
+	/**
 	 * Get the latest observations from stations
 	 * @param params - Query parameters for the latest endpoint
 	 * @returns Promise with the API response
@@ -120,35 +154,18 @@ export class Synoptic {
 			})
 			.json<LatestResponse>();
 	}
-
 	/**
-	 * Get time series data from stations
-	 * @param params - Query parameters for the timeseries endpoint
+	 * Get the latest observations from stations
+	 * @param params - Query parameters for the latest endpoint
 	 * @returns Promise with the API response
 	 */
-	async timeseries<T>(params: TimeseriesParams): Promise<T> {
+	async nearest(params: NearestSearchParams): Promise<NearestResponse> {
 		const searchParams = this.buildSearchParams(params);
-
 		return this.client
-			.get(ENDPOINTS.TIMESERIES, {
+			.get(ENDPOINTS.NEAREST, {
 				searchParams,
 			})
-			.json<T>();
-	}
-
-	/**
-	 * Get station metadata
-	 * @param params - Query parameters for the metadata endpoint
-	 * @returns Promise with the API response
-	 */
-	async metadata<T>(params: MetadataParams): Promise<T> {
-		const searchParams = this.buildSearchParams(params);
-
-		return this.client
-			.get(ENDPOINTS.METADATA, {
-				searchParams,
-			})
-			.json<T>();
+			.json<NearestResponse>();
 	}
 
 	/**

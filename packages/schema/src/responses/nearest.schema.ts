@@ -5,8 +5,10 @@ import type {
 	VariableUnits,
 } from "./common.schema";
 
-export type LatestResponse = {
-	STATION: Partial<Station>[];
+type NearestStation = Partial<Omit<Station, "MINMAX">>;
+
+export type NearestResponse = {
+	STATION: Partial<NearestStation>[];
 	SUMMARY: Partial<Summary>;
 	QC_SUMMARY: Partial<QcSummary>;
 	UNITS: Partial<VariableUnits>;

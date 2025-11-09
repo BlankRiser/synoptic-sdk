@@ -146,3 +146,50 @@ describe("Test /timeseries endpoints", () => {
 		});
 	});
 });
+
+describe("Test /metadata endpoints", () => {
+	test("should have all timeseries fields", async () => {
+		const synoptic = new Synoptic({
+			token: process.env.SYNOPTIC_TOKEN,
+			options: {
+				hooks: {
+					beforeRequest: [
+						(request) => {
+							console.log(request);
+						},
+					],
+				},
+			},
+		});
+
+		await synoptic.metadata({
+			stid: "bdvm8",
+			complete: "1",
+			pedon: "1",
+		});
+	});
+});
+
+describe("Test /nearest endpoints", () => {
+	test("should have all timeseries fields", async () => {
+		const synoptic = new Synoptic({
+			token: process.env.SYNOPTIC_TOKEN,
+			options: {
+				hooks: {
+					beforeRequest: [
+						(request) => {
+							console.log(request);
+						},
+					],
+				},
+			},
+		});
+
+		const res = await synoptic.nearest({
+			stid: "bdvm8",
+			complete: "1",
+		});
+
+		await Bun.write("./_response.json", JSON.stringify(res, null, 2));
+	});
+});
