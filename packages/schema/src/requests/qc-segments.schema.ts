@@ -1,13 +1,37 @@
 import type {
 	BooleanStringType,
+	QualityControlParams,
 	ResponseFormatParams,
 	StationSelectionsParams,
 	TimeZoneType,
 } from "./common.schema";
 
-export type LatencySearchParams = Partial<
+export type QCSegmentsSearchParams = Partial<
 	StationSelectionsParams &
-		ResponseFormatParams & {
+		Pick<QualityControlParams, "qc_checks"> &
+		Pick<ResponseFormatParams, "output"> & {
+			/**
+			 * @description
+			 * Requires that the Quality Control (QC) segment start falls within the requested time span.
+			 * - `1`: Only include QC segments that start **inside** the requested time range.
+			 * - `0` (default): Include all QC segments regardless of where they start.
+			 *
+			 * @example
+			 * "inside=1"
+			 * @example
+			 * "inside=0"
+			 * @type {BooleanStringType} - "0" | "1"
+			 * @optional
+			 */
+			inside?: BooleanStringType;
+			/**
+			 * @description Number of minutes prior to current time to fetch data for.
+			 * `recent` cannot be used when `start` and `end` are specified.
+			 * @example "recent=120"
+			 * @type {string}
+			 */
+			recent: string;
+
 			/**
 			 * @description Start time in the format YYYYmmddHHMM (UTC). `start` and `end` cannot be used when `recent` is specified.
 			 * @example "start=201306011800"
@@ -22,38 +46,6 @@ export type LatencySearchParams = Partial<
 			 * @type {string}
 			 */
 			end: string;
-
-			/**
-			 * @description
-			 * Indicates which statistical values to return.
-			 * Values cannot be combined — only one option may be provided per request.
-			 *
-			 * - `min`: Returns the minimum value and its timestamp.
-			 * - `max`: Returns the maximum value and its timestamp.
-			 * - `mean`: Returns the mean (average) value along with start and end timestamps.
-			 * - `median`: Returns the median value along with start and end timestamps.
-			 * - `count`: Returns the number of minutes in the time span.
-			 * - `stdev`: Returns the standard deviation value along with start and end timestamps.
-			 * - `all`: Returns all available statistics.
-			 *
-			 * @example
-			 * "stats=min"
-			 * @example
-			 * "stats=max"
-			 * @example
-			 * "stats=mean"
-			 * @example
-			 * "stats=median"
-			 * @example
-			 * "stats=count"
-			 * @example
-			 * "stats=stdev"
-			 * @example
-			 * "stats=all"
-			 * @type {"min" | "max" | "mean" | "median" | "count" | "stdev" | "all"}
-			 * @optional
-			 */
-			stats?: "min" | "max" | "mean" | "median" | "count" | "stdev" | "all";
 
 			/**
 			 * @description Indicates if extended metadata should be returned for each station.

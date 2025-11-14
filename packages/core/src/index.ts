@@ -1,17 +1,27 @@
+import type { LatencySearchParams } from "@devhaven/schema/requests/latency.schema";
 import type { LatestSearchParams } from "@devhaven/schema/requests/latest.schema";
 import type { MetadataParams } from "@devhaven/schema/requests/metadata.schema";
 import type { NearestSearchParams } from "@devhaven/schema/requests/nearest.schema";
 import type { NetworkTypesSearchParams } from "@devhaven/schema/requests/network-types.schema";
 import type { NetworksSearchParams } from "@devhaven/schema/requests/networks.schema";
+import type { PercentilesSearchParams } from "@devhaven/schema/requests/percentiles.schema";
+import type { PrecipitationSearchParams } from "@devhaven/schema/requests/precipitation.schema";
+import type { QCSegmentsSearchParams } from "@devhaven/schema/requests/qc-segments.schema";
 import type { QcTypesSearchParams } from "@devhaven/schema/requests/qc-types.schema";
+import type { StatisticsSearchParams } from "@devhaven/schema/requests/statistics.schema";
 import type { TimeseriesParams } from "@devhaven/schema/requests/timeseries.schema";
 import type { VariablesSearchParams } from "@devhaven/schema/requests/variables.schema";
+import type { LatencyResponse } from "@devhaven/schema/responses/latency.schema";
 import type { LatestResponse } from "@devhaven/schema/responses/latest.schema";
 import type { MetadataResponse } from "@devhaven/schema/responses/metadata.schema";
 import type { NearestResponse } from "@devhaven/schema/responses/nearest.schema";
 import type { NetworkTypesResponse } from "@devhaven/schema/responses/network-types.schema";
 import type { NetworkResponse } from "@devhaven/schema/responses/networks.schema";
+import type { PercentilesResponse } from "@devhaven/schema/responses/percentiles.schema";
+import type { PrecipitationResponse } from "@devhaven/schema/responses/precipitation.schema";
+import type { QCSegmentsResponse } from "@devhaven/schema/responses/qc-segments.schema";
 import type { QCTypesResponse } from "@devhaven/schema/responses/qc-types.schema";
+import type { StatisticsResponse } from "@devhaven/schema/responses/statistics.schema";
 import type { TimeseriesResponse } from "@devhaven/schema/responses/timeseries.schema";
 import type { VariablesResponse } from "@devhaven/schema/responses/variables.schema";
 import ky, { type KyInstance, type Options } from "ky";
@@ -155,7 +165,7 @@ export class Synoptic {
 			.json<LatestResponse>();
 	}
 	/**
-	 * Get the latest observations from stations
+	 * Get the nearest stations based on location
 	 * @param params - Query parameters for the latest endpoint
 	 * @returns Promise with the API response
 	 */
@@ -166,6 +176,79 @@ export class Synoptic {
 				searchParams,
 			})
 			.json<NearestResponse>();
+	}
+	/**
+	 * Get the precipitation data from stations
+	 * @param params - Query parameters for the latest endpoint
+	 * @returns Promise with the API response
+	 */
+	async precipitation(
+		params: PrecipitationSearchParams,
+	): Promise<PrecipitationResponse> {
+		const searchParams = this.buildSearchParams(params);
+		return this.client
+			.get(ENDPOINTS.PRECIPITATION, {
+				searchParams,
+			})
+			.json<PrecipitationResponse>();
+	}
+	/**
+	 * Get the staticstics data from stations
+	 * @param params - Query parameters for the latest endpoint
+	 * @returns Promise with the API response
+	 */
+	async statistics(
+		params: StatisticsSearchParams,
+	): Promise<StatisticsResponse> {
+		const searchParams = this.buildSearchParams(params);
+		return this.client
+			.get(ENDPOINTS.STATISTICS, {
+				searchParams,
+			})
+			.json<StatisticsResponse>();
+	}
+	/**
+	 * Get the percentile data from stations
+	 * @param params - Query parameters for the latest endpoint
+	 * @returns Promise with the API response
+	 */
+	async percentiles(
+		params: PercentilesSearchParams,
+	): Promise<PercentilesResponse> {
+		const searchParams = this.buildSearchParams(params);
+		return this.client
+			.get(ENDPOINTS.PERCENTILES, {
+				searchParams,
+			})
+			.json<PercentilesResponse>();
+	}
+	/**
+	 * Get the qc segments data from stations
+	 * @param params - Query parameters for the latest endpoint
+	 * @returns Promise with the API response
+	 */
+	async qcSegments(
+		params: QCSegmentsSearchParams,
+	): Promise<QCSegmentsResponse> {
+		const searchParams = this.buildSearchParams(params);
+		return this.client
+			.get(ENDPOINTS.QC_SEGMENTS, {
+				searchParams,
+			})
+			.json<QCSegmentsResponse>();
+	}
+	/**
+	 * Get the latency data from stations
+	 * @param params - Query parameters for the latest endpoint
+	 * @returns Promise with the API response
+	 */
+	async latency(params: LatencySearchParams): Promise<LatencyResponse> {
+		const searchParams = this.buildSearchParams(params);
+		return this.client
+			.get(ENDPOINTS.LATENCY, {
+				searchParams,
+			})
+			.json<LatencyResponse>();
 	}
 
 	/**

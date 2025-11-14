@@ -32,6 +32,7 @@ export type TimeseriesParams = Partial<
 			 * @type {string}
 			 */
 			end: string;
+
 			/**
 			 * @description A value of `1` or `0`. When set to `1`, an extended list of metadata attributes for each returned station is provided.
 			 * This is useful for exploring the zones and regions in which a station resides.

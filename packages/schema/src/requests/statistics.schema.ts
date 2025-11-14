@@ -3,11 +3,21 @@ import type {
 	ResponseFormatParams,
 	StationSelectionsParams,
 	TimeZoneType,
+	UnitsParams,
 } from "./common.schema";
 
-export type LatencySearchParams = Partial<
+export type StatisticsSearchParams = Partial<
 	StationSelectionsParams &
-		ResponseFormatParams & {
+		ResponseFormatParams &
+		UnitsParams & {
+			/**
+			 * @description Number of minutes prior to current time to fetch data for.
+			 * `recent` cannot be used when `start` and `end` are specified.
+			 * @example "recent=120"
+			 * @type {string}
+			 */
+			recent: string;
+
 			/**
 			 * @description Start time in the format YYYYmmddHHMM (UTC). `start` and `end` cannot be used when `recent` is specified.
 			 * @example "start=201306011800"
@@ -25,35 +35,45 @@ export type LatencySearchParams = Partial<
 
 			/**
 			 * @description
-			 * Indicates which statistical values to return.
-			 * Values cannot be combined — only one option may be provided per request.
+			 * Defines the time period represented by the returned statistics.
+			 * - `day` (default): Returns daily statistics within the specified date range.
+			 * - `month`: Returns monthly aggregated statistics for the specified range.
 			 *
-			 * - `min`: Returns the minimum value and its timestamp.
-			 * - `max`: Returns the maximum value and its timestamp.
-			 * - `mean`: Returns the mean (average) value along with start and end timestamps.
-			 * - `median`: Returns the median value along with start and end timestamps.
-			 * - `count`: Returns the number of minutes in the time span.
-			 * - `stdev`: Returns the standard deviation value along with start and end timestamps.
-			 * - `all`: Returns all available statistics.
+			 * For example, using `start=20250101&end=20250131&period=day` will return
+			 * daily statistics for January 2025.
 			 *
 			 * @example
-			 * "stats=min"
+			 * "period=day"
 			 * @example
-			 * "stats=max"
-			 * @example
-			 * "stats=mean"
-			 * @example
-			 * "stats=median"
-			 * @example
-			 * "stats=count"
-			 * @example
-			 * "stats=stdev"
-			 * @example
-			 * "stats=all"
-			 * @type {"min" | "max" | "mean" | "median" | "count" | "stdev" | "all"}
+			 * "period=month"
+			 * @type {"day" | "month"}
 			 * @optional
 			 */
-			stats?: "min" | "max" | "mean" | "median" | "count" | "stdev" | "all";
+			period?: "day" | "month";
+
+			/**
+			 * @description
+			 * Defines the type of statistic to return.
+			 * - `all` (default): Returns all available statistics.
+			 * - `min`: Returns the minimum value.
+			 * - `max`: Returns the maximum value.
+			 * - `mean`: Returns the mean (average) value.
+			 * - `count`: Returns the total number of observations.
+			 *
+			 * @example
+			 * "statistic=all"
+			 * @example
+			 * "statistic=min"
+			 * @example
+			 * "statistic=max"
+			 * @example
+			 * "statistic=mean"
+			 * @example
+			 * "statistic=count"
+			 * @type {"all" | "min" | "max" | "mean" | "count"}
+			 * @optional
+			 */
+			statistic?: "all" | "min" | "max" | "mean" | "count";
 
 			/**
 			 * @description Indicates if extended metadata should be returned for each station.
@@ -85,6 +105,14 @@ export type LatencySearchParams = Partial<
 			 * @optional
 			 */
 			showemptystations: BooleanStringType;
+
+			/**
+			 * @description Indicates if variables with no observations will be returned. Guarantees all keys in `SENSOR_VARIABLES` will be present in the `OBSERVATIONS` element.
+			 * @example "showemptyvars=1"
+			 * @type {BooleanStringType} - "0" | "1"
+			 * @optional
+			 */
+			showemptyvars?: BooleanStringType;
 
 			/**
 			 * @description Returns all historical siting metadata for each station (requires `complete=1`).
