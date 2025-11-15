@@ -41,5 +41,16 @@
 	"dependencies": {
 		"ky": "1.13.0",
 		"zod": "4.1.12"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"homepage": "https://github.com/BlankRiser/synoptic-sdk#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/BlankRiser/synoptic-sdk.git"
+	},
+	"bugs": {
+		"url": "https://github.com/BlankRiser/synoptic-sdk/issues"
 	}
 }
