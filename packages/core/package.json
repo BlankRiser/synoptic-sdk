@@ -1,12 +1,10 @@
 {
 	"name": "@devhaven/synoptic-sdk",
 	"license": "MIT",
-	"version": "0.1.0",
-	"module": "index.ts",
-	"type": "module",
-	"files": [
-		"dist"
-	],
+	"version": "0.1.5",
+	"main": "./dist/index.js",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"keywords": [
 		"synoptic",
 		"weather",
@@ -14,6 +12,17 @@
 		"sdk",
 		"typescript"
 	],
+	"type": "module",
+	"files": [
+		"dist"
+	],
+	"exports": [
+		{
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		}
+	],
+
 	"scripts": {
 		"dev": "bun run ./src/index.ts",
 		"build": "bun run ./scripts/build.ts",
@@ -32,6 +41,6 @@
 	},
 	"dependencies": {
 		"ky": "1.13.0",
-		"@devhaven/schema": "workspace:*"
+		"zod": "4.1.12"
 	}
 }

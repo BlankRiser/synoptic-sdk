@@ -7,6 +7,9 @@
   </p>
 </p>
 
+> [!NOTE]
+> This is an unofficial SDK and currently in early development. Please report any issues or feature requests on the [GitHub Issues Page](https://github.com/BlankRiser/synoptic-sdk/issues).
+
 ### Features
 
 - Full TypeScript type safety (Type Inference & Type Guards)

@@ -1,4 +1,4 @@
-import z from "zod";
+import { z } from "zod";
 
 export const timeZoneSchema = z.union([z.literal("UTC"), z.literal("local")]);
 export const switchString = z.union([z.literal("on"), z.literal("off")]);

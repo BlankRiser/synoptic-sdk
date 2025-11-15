@@ -2,8 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@devhaven/schema/*": ["../../packages/schema/src/*"]
+      "@/*": ["./src/*"]
     },
     // Environment setup & latest features
     "lib": ["ESNext"],
