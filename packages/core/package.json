@@ -22,7 +22,6 @@
 			"import": "./dist/index.js"
 		}
 	],
-
 	"scripts": {
 		"dev": "bun run ./src/index.ts",
 		"build": "bun run ./scripts/build.ts",

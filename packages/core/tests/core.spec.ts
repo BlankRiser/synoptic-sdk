@@ -68,7 +68,7 @@ describe("Test /latest endpoint", () => {
 		});
 
 		await synoptic.latest({
-			stid: "kslc",
+			stid: "wbb",
 			vars: "air_temp,wind_speed",
 			within: "60",
 			complete: "1",
@@ -84,7 +84,7 @@ describe("Test /timeseries endpoints", () => {
 		});
 
 		await synoptic.timeseries({
-			stid: "kslc",
+			stid: "wbb",
 			vars: "air_temp,wind_speed",
 			recent: "30",
 		});
@@ -98,7 +98,7 @@ describe("Test /metadata endpoints", () => {
 		});
 
 		await synoptic.metadata({
-			stid: "bdvm8",
+			stid: "wbb",
 			complete: "1",
 			pedon: "1",
 		});
@@ -112,7 +112,7 @@ describe("Test /nearest endpoints", () => {
 		});
 
 		await synoptic.nearest({
-			stid: "bdvm8",
+			stid: "wbb",
 			complete: "1",
 		});
 	});
@@ -125,7 +125,7 @@ describe("Test /latency endpoints", () => {
 		});
 
 		await synoptic.latency({
-			stid: "bdvm8",
+			stid: "wbb",
 			complete: "1",
 			start: "202510121200",
 			end: "202510131200",
@@ -140,7 +140,7 @@ describe("Test /precipitation endpoints", () => {
 		});
 
 		const res = await synoptic.precipitation({
-			stid: "bdvm8",
+			stid: "wbb",
 			complete: "1",
 			start: "202510121200",
 			end: "202510131200",
@@ -154,32 +154,32 @@ describe("Test /precipitation endpoints", () => {
 	});
 });
 
-// describe("Test /percentiles endpoints", () => {
-// 	test("should have all percentiles fields", async () => {
-// 		const synoptic = new Synoptic({
-// 			token: process.env.SYNOPTIC_TOKEN,
-// 		});
+describe("Test /percentiles endpoints", () => {
+	test("should have all percentiles fields", async () => {
+		const synoptic = new Synoptic({
+			token: process.env.SYNOPTIC_TOKEN,
+		});
 
-// 		await synoptic.percentiles({
-// 			stid: "bdvm8",
-// 			vars: "wind_speed",
-// 		});
-// 	});
-// });
+		await synoptic.percentiles({
+			stid: "wbb",
+			vars: "wind_speed",
+		});
+	});
+});
 
-// describe("Test /statistics endpoints", () => {
-// 	test("should have all statistics fields", async () => {
-// 		const synoptic = new Synoptic({
-// 			token: process.env.SYNOPTIC_TOKEN,
-// 		});
+describe("Test /statistics endpoints", () => {
+	test("should have all statistics fields", async () => {
+		const synoptic = new Synoptic({
+			token: process.env.SYNOPTIC_TOKEN,
+		});
 
-// 		await synoptic.statistics({
-// 			stid: "bdvm8",
-// 			vars: "wind_speed",
-// 			period: "day",
-// 			statistic: "max",
-// 			start: "20020814",
-// 			end: "20251114",
-// 		});
-// 	});
-// });
+		await synoptic.statistics({
+			stid: "wbb",
+			vars: "wind_speed",
+			period: "day",
+			statistic: "max",
+			start: "20020814",
+			end: "20251114",
+		});
+	});
+});
