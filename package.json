@@ -15,8 +15,6 @@
 		"packages/*"
 	],
 	"scripts": {
-		"docs": "bun run --cwd apps/docs",
-		"docs:add": "bun add --cwd apps/docs",
 		"core": "bun run --cwd packages/core",
 		"core:add": "bun add --cwd packages/core",
 		"check": "biome check ./packages ./apps",
