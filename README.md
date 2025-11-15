@@ -1,1 +1,1 @@
-packages/zod/README.md
+./packages/core/README.md
